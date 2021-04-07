@@ -1,0 +1,64 @@
+inside mainfest.xml
+
+
+
+android:name=".app.MyApplication"
+ <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" /> <!-- todo for firebase -->
+        <!--
+  <meta-data
+              android:name="com.google.android.maps.v2.API_KEY"
+              android:value="YOUR_GOOGLE_MAP_API_KEY" />
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+        <service android:name=".fcm.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+
+ inside gradle (Module : app)
+  buildTypes {
+         debug {
+             buildConfigField("String", "FCM_BASE_URL", "\"https://fcm.googleapis.com/\"")
+ //            buildConfigField("String", "FCM_SERVER_KEY", "\"AAAAAjHmshg:APA91bHine_ZGcUH2Opq52HcMdzNZmk_I2bA9h25wgawdyU7BksUXduDvk7niDMo18mU4OwLf8XR0-8sEeM3YJlw-OlVkeFvDtWJDACRR-eaXogV9YrVgnW11xZLmsRHh9K_EOj47dKH\"")
+             buildConfigField("String", "FCM_SERVER_KEY", "\"AAAAjBOSOFo:APA91bFXShnMs2Yalgmo48hILNZG1V9wiFtgId8Nco2lCziStR7DZRHcFbCpYUXbg6NwD9pzT2zDEmRkShwnXBFiR7ew6TLK8Ec0DT5o6ARDqDkNYpmw0DtI_BWrfXumdj0rPUuCY-xU\"")
+         }
+         release {
+             buildConfigField("String", "FCM_BASE_URL", "\"https://fcm.googleapis.com/\"")
+             buildConfigField("String", "FCM_SERVER_KEY", "\"AAAAjBOSOFo:APA91bFXShnMs2Yalgmo48hILNZG1V9wiFtgId8Nco2lCziStR7DZRHcFbCpYUXbg6NwD9pzT2zDEmRkShwnXBFiR7ew6TLK8Ec0DT5o6ARDqDkNYpmw0DtI_BWrfXumdj0rPUuCY-xU\"")
+             minifyEnabled false
+             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+         }
+     }
+
+       //todo for firebase
+         implementation 'com.google.firebase:firebase-database:19.6.0'
+         implementation 'com.firebaseui:firebase-ui-database:6.2.0'
+     //    implementation "com.squareup.okhttp3:logging-interceptor:4.3.1"
+         implementation 'org.apache.commons:commons-lang3:3.6'
+         implementation 'pub.devrel:easypermissions:3.0.0'
+         implementation 'com.google.firebase:firebase-auth:19.3.1'
+         // implementation 'com.google.firebase:firebase-core:16.0.3'
+         implementation 'com.google.android.gms:play-services-auth:16.0.0'
+
+         implementation 'com.google.firebase:firebase-core:17.0.1'
+         implementation 'com.google.firebase:firebase-messaging:20.2.1'
+         implementation 'com.google.firebase:firebase-analytics:17.2.0'
+         implementation 'com.google.android.material:material:1.0.0'
+         implementation 'com.google.firebase:firebase-storage:19.1.1'
+
+
+inside gradle (Project)
+
+        classpath 'com.google.gms:google-services:4.3.5'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.2.0'

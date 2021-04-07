@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/itemLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:paddingVertical="@dimen/_6sdp">
+
+        <LinearLayout
+            android:id="@+id/messageBoxLL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:background="@drawable/message_chat_box_start"
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/_10sdp"
+            android:visibility="visible">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/messageIV"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_210sdp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/avatar"
+                android:visibility="gone"
+                app:riv_corner_radius="@dimen/_10sdp" />
+
+
+            <TextView
+                android:id="@+id/messageTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:visibility="gone"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/messageBoxLLLL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:background="@drawable/message_chat_box_end"
+            android:orientation="vertical"
+
+            android:paddingVertical="@dimen/_10sdp"
+            android:visibility="gone">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/messageIVIV"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_220sdp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                app:riv_corner_radius="@dimen/_10sdp" />
+
+            <TextView
+                android:id="@+id/messageTVTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#1E1E1E"
+                android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>
